@@ -3,10 +3,8 @@ let coin = {
   flip: function () {
     if (Math.random() > 0.5) {
       this.state = 1;
-      console.log(this.state);
     } else {
       this.state = 0;
-      console.log(this.state);
     }
   },
   toString: function () {
@@ -18,7 +16,7 @@ let coin = {
       string.innerHTML = "Tails";
       document.body.appendChild(string);
     }
-    return string.innerHTML;
+    return string;
   },
   toHTML: function () {
     let image = document.createElement("img");
