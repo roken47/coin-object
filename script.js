@@ -38,8 +38,11 @@ let textFlipsBtn = document.createElement("button");
 textFlipsBtn.innerHTML = "display20Flips()";
 let imageFlipsBtn = document.createElement("button");
 imageFlipsBtn.innerHTML = "display20Images()";
+let resetBtn = document.createElement("button");
+resetBtn.innerHTML = "Reset Page";
 document.body.appendChild(textFlipsBtn);
 document.body.appendChild(imageFlipsBtn);
+document.body.appendChild(resetBtn);
 
 function display20Flips() {
   for (i = 0; i < 20; i++) {
@@ -53,9 +56,22 @@ function display20Images() {
     coin.toHTML();
   }
 }
+function resetPage() {
+  let textFlipsAll = document.querySelectorAll("li");
+  let imageFlipsAll = document.querySelectorAll("img");
+  for (i = 0; i < textFlipsAll.length; i++) {
+    textFlipsAll[i].remove();
+  }
+  for (j = 0; j < imageFlipsAll.length; j++) {
+    imageFlipsAll[j].remove();
+  }
+}
 textFlipsBtn.addEventListener("click", function () {
   return display20Flips();
 });
 imageFlipsBtn.addEventListener("click", function () {
   return display20Images();
+});
+resetBtn.addEventListener("click", function () {
+  return resetPage();
 });
