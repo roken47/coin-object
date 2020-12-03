@@ -1,3 +1,16 @@
+// Buttons
+const textFlipsBtn = document.createElement("button");
+textFlipsBtn.innerHTML = "display20Flips()";
+const imageFlipsBtn = document.createElement("button");
+imageFlipsBtn.innerHTML = "display20Images()";
+const resetBtn = document.createElement("button");
+resetBtn.innerHTML = "Reset Page";
+document.body.appendChild(textFlipsBtn);
+document.body.appendChild(imageFlipsBtn);
+document.body.appendChild(resetBtn);
+// DOM Shortcuts
+const parent = document.body
+// Object with Embedded DOM Mutations
 let coin = {
   state: 0,
   flip: function () {
@@ -11,10 +24,10 @@ let coin = {
     let string = document.createElement("li");
     if (this.state === 1) {
       string.innerHTML = "Heads";
-      document.body.appendChild(string);
+      parent.appendChild(string);
     } else {
       string.innerHTML = "Tails";
-      document.body.appendChild(string);
+      parent.appendChild(string);
     }
     return string;
   },
@@ -25,25 +38,16 @@ let coin = {
     if (this.state === 1) {
       image.src = "./images/heads.jpg";
       image.alt = "Heads";
-      document.body.appendChild(image);
+      parent.appendChild(image);
     } else {
       image.src = "./images/tails.jpg";
       image.alt = "Tails";
-      document.body.appendChild(image);
+      parent.appendChild(image);
     }
     return image;
   },
 };
-let textFlipsBtn = document.createElement("button");
-textFlipsBtn.innerHTML = "display20Flips()";
-let imageFlipsBtn = document.createElement("button");
-imageFlipsBtn.innerHTML = "display20Images()";
-let resetBtn = document.createElement("button");
-resetBtn.innerHTML = "Reset Page";
-document.body.appendChild(textFlipsBtn);
-document.body.appendChild(imageFlipsBtn);
-document.body.appendChild(resetBtn);
-
+// Named Functions
 function display20Flips() {
   for (i = 0; i < 20; i++) {
     coin.flip();
@@ -66,6 +70,7 @@ function resetPage() {
     imageFlipsAll[j].remove();
   }
 }
+// User Invoked Functions
 textFlipsBtn.addEventListener("click", function () {
   return display20Flips();
 });
